@@ -134,18 +134,18 @@ docker build --tag cchorn/sparc:jupyter_V1.1 .
 
 ---------------------
 
-###### *Acknowledgements: This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program, including these projects:*
-1. *Defining gastric vagal mechanisms underlying emetic activation using novel electrophysiological and optical mapping technology. [3U18EB021772-02S2](https://projectreporter.nih.gov/project_info_description.cfm?aid=9533820&icde=37670422&ddparam=&ddvalue=&ddsub=&cr=2&csb=default&cs=ASC&pball=).*
-2. *Closed-loop neuroelectric control of emesis and gastric motility [1U18TR002205-01](https://projectreporter.nih.gov/project_info_description.cfm?aid=9405061&icde=37670484&ddparam=&ddvalue=&ddsub=&cr=5&csb=default&cs=ASC&pball=)*     
+##### *Acknowledgements: This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program, including these projects:*
+##### 1. *Defining gastric vagal mechanisms underlying emetic activation using novel electrophysiological and optical mapping technology. [3U18EB021772-02S2](https://projectreporter.nih.gov/project_info_description.cfm?aid=9533820&icde=37670422&ddparam=&ddvalue=&ddsub=&cr=2&csb=default&cs=ASC&pball=).*
+##### 2. *Closed-loop neuroelectric control of emesis and gastric motility [1U18TR002205-01](https://projectreporter.nih.gov/project_info_description.cfm?aid=9405061&icde=37670484&ddparam=&ddvalue=&ddsub=&cr=5&csb=default&cs=ASC&pball=)*     
 
 ---------------------
 
-*MIT license*
+###### *MIT license*
 
-*Copyright (c) 2018 Charles Horn*
+###### *Copyright (c) 2018 Charles Horn*
 
-*Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:*
+###### *Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:*
 
-*The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*
+###### *The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*
 
-*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+###### *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
