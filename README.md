@@ -79,7 +79,7 @@ R is a software environment for statistical computing and graphics.
 * ***sample Jupyter notebook:***
 The file "Sample_Notebook.ipynb" contains code to check the installed Python and R packages and shows how to use the "rpy2" package to create a bridge from Python to R in a notebook running Python kernel. Usage note: you can use an [ipython magic command](http://ipython.readthedocs.io/en/stable/interactive/magics.html?highlight=magic#) to run Python 2 code in a notebook cell running a Python 3 kernel (or vice versa) but there is no easy way to pass data and variables outside this cell. I would recommend using Python 2 and Python 3 as separate notebooks and passing data using  [storemagic](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html)
 
-* ***Customization.*** You can also install additional Python and R (and OS packages) in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3; you'll need to "commit" these software changes to a new image to save.
+* ***Customization.*** You can also install additional Python and R (and OS) packages in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3; you'll need to "commit" these software changes to a new image to save.
 
 A Dockerfile used to create the image is included in this Github repository [1], but you DO NOT need to create the image. This is time consuming and depending on computer speed could easily exceed 15 min. Instead, you can ***download the pre-built image from Docker Hub (see below) and begin working on data analysis immediately!***
 
