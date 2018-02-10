@@ -77,7 +77,7 @@ R is a software environment for statistical computing and graphics.
 [bursts](https://cran.r-project.org/web/packages/bursts/index.html) (algorithm to detect activity bursts in time series data)
 
 * ***sample Jupyter notebook:***
-The file "Sample_Notebook.ipynb" contains code to check the installed Python and R packages and shows how to use the "rpy2" package to create a bridge from Python to R in a notebook running Python kernel.
+The file "Sample_Notebook.ipynb" contains code to check the installed Python and R packages and shows how to use the "rpy2" package to create a bridge from Python to R in a notebook running Python kernel. Usage note: you can use an [ipython magic command](http://ipython.readthedocs.io/en/stable/interactive/magics.html?highlight=magic#cell-magics) to run Python 2 code in a notebook cell running a Python 3 kernel (or vice versa) but there is no easy way to pass data and variables outside this cell. I would recommend using Python 2 and Python 3 as separate notebooks and passing data using  [storemagic](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html)
 
 * ***Customization.*** You can also install additional Python and R (and OS packages) in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3; you'll need to "commit" these software changes to a new image to save.
 
