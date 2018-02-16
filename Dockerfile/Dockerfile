@@ -39,7 +39,7 @@ ENV SHELL=/bin/bash \
     LANGUAGE=en_US.UTF-8
 
 # Copy example notebooks to tmp directory
-COPY Example_Jupyter_Notebooks/ /home/
+COPY Jupyter_Notebooks/ /home/
 
 # Install python3 and pip package manager
 RUN apt-get update \
