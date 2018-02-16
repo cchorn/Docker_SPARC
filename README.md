@@ -62,7 +62,8 @@ R is a software environment for statistical computing and graphics.
 [h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
 [neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 2 & 3   
 [notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3     
-[pybursts](https://github.com/rpoddighe/pybursts) (algorithm to detect activity bursts in time series data; Python implementation of the R "bursts" package), Python 2
+[pybursts](https://github.com/rpoddighe/pybursts) (algorithm to detect activity bursts in time series data; Python implementation of the R "bursts" package), Python 2    
+[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client), API for interaction with the Blackfynn platform for data storage/analysis, Python 2
 
 * ***R packages:***    
 [dplyr](http://dplyr.tidyverse.org/) (dataframe manipulation)    
@@ -76,8 +77,14 @@ R is a software environment for statistical computing and graphics.
 [STAR](https://cran.r-project.org/web/packages/STAR/index.html) (Spike Train Analysis with R)   
 [bursts](https://cran.r-project.org/web/packages/bursts/index.html) (algorithm to detect activity bursts in time series data)
 
-* ***sample Jupyter notebook:***
-The file "Sample_Notebook.ipynb" contains code to check the installed Python and R packages and shows how to use the "rpy2" package to create a bridge from Python to R in a notebook running Python kernel. Usage note: you can use an [ipython magic command](http://ipython.readthedocs.io/en/stable/interactive/magics.html?highlight=magic#) to run Python 2 code in a notebook cell running a Python 3 kernel (or vice versa) but there is no easy way to pass data and variables outside this cell. I would recommend using Python 2 and Python 3 as separate notebooks and passing data using  [storemagic](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html)
+* ***Jupyter "how-to" notebooks:***
+The file "Index.ipynb" contains links to the following notebooks stored in the "Example_Jupyter_Notebooks" directory:    
+**1-check the versions of Python 2, Python 3, and R ... and installed packages**     
+**2-use Python and R in the same notebook**,
+uses Python package "rpy2" to create a bridge       
+**3-pass data between notebooks running different versions of Python**, uses notebook magic command ["%store"](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html) to move data from Python 2 to Python 3 notebook (there is no easy way to pass data between Python 2 and 3 in the same notebook)      
+**4-load a Spike 2 file into Python**, uses Python "Neo" package; other file type imports are supported, e.g., [Matlab, Axon Instruments, HDF5, Neuroshare, Plexon, Tucker Davis, etc.](http://neo.readthedocs.io/en/0.5.0/io.html), also, shows how to import an external script into the notebook (a good way to reduce code clutter)    
+**5-use Blackfynn Python 2 API**, brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set up credentials on the Docker image to use the API; your Blackfynn profile will be erased on the image when the container is stopped and removed from your system (if you want to save the profile, you can save the container as a new image; see below).
 
 * ***Customization.*** You can also install additional Python and R (and OS) packages in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3; you'll need to "commit" these software changes to a new image to save.
 
@@ -86,20 +93,20 @@ A Dockerfile used to create the image is included in this Github repository [1],
 # How to use the Docker image
 First, download the image (a small 2.7 GB) by entering this command in the terminal:
 ```
-docker pull cchorn/sparc:jupyter_V1.1
+docker pull cchorn/sparc:jupyter_V1.2
 ```
 Next, enter the following command:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.1
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.2
 ```
-The "docker run" command starts a container based on an image, in this case "cchorn/sparc:jupyter_V1.1". The command also contains three flags:
+The "docker run" command starts a container based on an image, in this case "cchorn/sparc:jupyter_V1.2". The command also contains three flags:
 * "-it" = interactive terminal, which will keep the container running in the terminal until you close it.
 * "-p" = port mapping from the host port on the left and container port on the right of the ":". This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.
 * "-v" = volume (folders) mapping from host to container, in this case the container will be able to see the host's "desktop" folder from the container's "work" folder; the host's folder name should be customized for your computer.
 
 Note: the "--rm" flag will cause automatic deletion of stopped containers. If you intend to make software changes and save a new image you need to remove this flag before running the container.  
 
-After entering the "run" command a URL will be generated (http://localhost:8888/ + a security token). Copy the URL to your browser to see the Jupyter notebook directory! From here, you can create new notebooks using Python and R kernels and access the container's command-line terminal in the host browser (menu button on far right). New notebooks and files you create will be saved to your host machine folder mapped with the "docker run" command. Any documents that you want to save must be stored in the "work" directory on the container, which is mapped to volume on your host computer (see above; the "-v" flag). On some host machine (e.g. Windows 7), you will need to determine the ip address of the running container and use this instead of "localhost" (e.g., [docker-machine ip](https://docs.docker.com/machine/reference/ip/))
+After entering the "run" command a URL will be generated (http://localhost:8888/ + a security token). Copy the URL to your browser to see the Jupyter notebook directory! From here, you can create new notebooks using Python and R kernels and access the container's command-line terminal in the host browser (menu button on far right). New notebooks and files you create will be saved to your host machine folder mapped with the "docker run" command. Any documents that you want to save must be stored in the "work" directory on the container, which is mapped to volume on your host computer (see above; the "-v" flag). On some host machine (e.g. Windows 7 and 8), you will need to determine the ip address of the running container and use this instead of "localhost" (e.g., [docker-machine ip](https://docs.docker.com/machine/reference/ip/))
 
 The running container can be stopped by entering ctrl+C in the host's terminal. If you ran Docker without the "--rm" flag, you can now see the exited container in the container list by entering:
 ```
@@ -111,7 +118,11 @@ docker rm [container name]
 ```
 The "container name" is a name generated by Docker, found at the end of each entry in the container list.
 
-Alternatively, if you made software changes, you can save the container as a new image using the "commit" command. Please see the [Docker tutorial](https://docker-curriculum.com/).
+Alternatively, if you made software changes, you can save the container as a new image using the ["commit" command](https://docs.docker.com/engine/reference/commandline/commit/), for example:
+```
+docker commit [container name] [repository name:tag]
+```
+This new image can be stored on your Docker cloud account, using the ["push" command](https://docs.docker.com/engine/reference/commandline/push/).
 
 # Other resources:
 * [Jupyter tutorial](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/)
@@ -123,18 +134,23 @@ Alternatively, if you made software changes, you can save the container as a new
 * [R package list by name](https://cran.r-project.org/web/packages/available_packages_by_name.html), there are > *12,000* packages! The R project site does not have a search function but you can use [Rseek](https://rseek.org/)
 
 # Future plans for the base image:
-* include example notebooks:  (1) show how to work with both Python 3 and Python 2; (2) graphing with matplotlib, seaborn, and ggplot2; and (3) statistics
+* include example notebooks for:  (1) plotting with matplotlib, seaborn, and ggplot2; and (3) statistics
 * include specific neurophysiology packages for viewing, spike detection, clustering, etc.
 * other suggests welcome!
 
 [1] To build the docker image from the Dockerfile run the following command from the Dockerfile folder:
 ```
-docker build --tag cchorn/sparc:jupyter_V1.1 .
+docker build --tag cchorn/sparc:jupyter_V1.2 .
 ```
 
 ---------------------
 
-##### *Acknowledgements: This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program, including these projects:*
+##### *Acknowledgements:
+Derek Miller, University of Pittsburgh; testing Blackfynn API code   
+Stephanie Fulton, University of Pittsburgh; testing Docker functionality   
+Michael Sciullo, University of Pittsburgh; testing Docker functionality   
+
+This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program, including these projects:*
 ##### 1. *Defining gastric vagal mechanisms underlying emetic activation using novel electrophysiological and optical mapping technology. [3U18EB021772-02S2](https://projectreporter.nih.gov/project_info_description.cfm?aid=9533820&icde=37670422&ddparam=&ddvalue=&ddsub=&cr=2&csb=default&cs=ASC&pball=).*
 ##### 2. *Closed-loop neuroelectric control of emesis and gastric motility [1U18TR002205-01](https://projectreporter.nih.gov/project_info_description.cfm?aid=9405061&icde=37670484&ddparam=&ddvalue=&ddsub=&cr=5&csb=default&cs=ASC&pball=)*     
 

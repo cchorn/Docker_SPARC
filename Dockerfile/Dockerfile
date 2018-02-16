@@ -39,7 +39,7 @@ ENV SHELL=/bin/bash \
     LANGUAGE=en_US.UTF-8
 
 # Copy example notebooks to tmp directory
-COPY Examples/ /home/
+COPY Example_Jupyter_Notebooks/ /home/
 
 # Install python3 and pip package manager
 RUN apt-get update \
@@ -54,7 +54,7 @@ RUN pip3 install jupyter pandas numpy matplotlib neo h5py ggplot jupyter_contrib
 # Install python 2.7 and pip package manager
 RUN apt-get install -y python2.7 python-pip
 RUN sudo -H pip2 install --upgrade pip
-RUN pip install pandas numpy matplotlib neo h5py ggplot scipy statsmodels seaborn ipykernel pybursts
+RUN pip install pandas numpy matplotlib neo h5py ggplot scipy statsmodels seaborn ipykernel pybursts blackfynn
 
 # Install R
 RUN apt-get install -y r-base r-base-dev
