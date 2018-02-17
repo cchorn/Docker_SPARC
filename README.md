@@ -84,7 +84,7 @@ The file "Index.ipynb" contains links to the following notebooks stored in the "
 uses the Python package "rpy2" to create a bridge       
 **3-pass data between notebooks running different versions of Python**, uses the built-in notebook command ["%store"](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html) to move data from Python 2 to Python 3 notebook (note: there is no easy way to pass data between Python 2 and 3 in the same notebook)      
 **4-load a Spike 2 file into Python**, uses the Python "Neo" package; other file type imports are supported, e.g., [Matlab, Axon Instruments, HDF5, Neuroshare, Plexon, Tucker Davis, etc.](http://neo.readthedocs.io/en/0.5.0/io.html), also, shows how to import an external script into the notebook (a good way to reduce code clutter)    
-**5-use Blackfynn Python 2 API**, brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set your credentials (i.e., Blackfynn profile) in the Docker container to use the API; your Blackfynn profile will be erased when the container is stopped and removed from your system (you can enter your credentials each time you run a new container or save the container as a new image, which will save your profile, see below).
+**5-use Blackfynn Python 2 API**, brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set your credentials (i.e., Blackfynn profile) in the Docker container to use the API; your Blackfynn profile will be erased when the container is stopped and removed from your system (you can enter your credentials each time you run a new container or save the container as a new image, which will save your profile, see below). A folder is included with test files for upload to Blackfynn (Spike2, CSV, Excel, PDF, PNG).
 
 * ***Customization.*** You can also install additional Python, R, and operating system packages in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3, "install.packages()" in R command line, and "apt install" for the Ubuntu Linux terminal. You will need to "commit" these software changes to a new image to save (see below).
 
@@ -136,6 +136,7 @@ This new image will be loaded into the Docker image list on your local machine. 
 # Future plans for the base image:
 * include example notebooks for: (1) plotting with matplotlib, seaborn, and ggplot2; and (2) statistics
 * include specific neurophysiology packages for viewing, spike detection, clustering, etc.
+* include more test files for Blackfynn
 * other suggests welcome!
 
 [1] To build the docker image from the Dockerfile run the following command from the Dockerfile folder:
