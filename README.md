@@ -37,16 +37,16 @@ docker run [image name]
 # What's in the Docker image?
 The "sparc:jupyter_V1.2" image is loaded with analytical software, including:
 
-* ***[Python 3.5](https://www.python.org/downloads/)***   
+* ***[Python 3.5.2](https://www.python.org/downloads/)***   
 Python is a high-level interpreted general-purpose programming language. Python 3.5 is the version of Python in the image. Entering the command "python" in the container's terminal will start Python 3.5 in the command line.
 
-* ***[Python 2.7](https://www.python.org/downloads/)***    
+* ***[Python 2.7.12](https://www.python.org/downloads/)***    
 Entering "python2" at the command line will start Python 2.7. Python 2 provides access to a multitude of older Python software.
 
 * ***[R 3.4.3](https://www.r-project.org/)***    
 R is a software environment for statistical computing and graphics.
 
-* ***[Jupyter](https://jupyter.org/) and add-ons***   
+* ***[Jupyter 4.4.0](https://jupyter.org/) and add-ons***   
 [Jupyter notebook extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/) (extensions to notebook functions, e.g., automatic table of contents, spellchecker, scratchpad, conversion of Python 2 to 3)    
 [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)  (interactive HTML widgets for Jupyter notebooks)    
 
