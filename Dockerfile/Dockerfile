@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     virtualenv \
     r-cran-nloptr \
+    curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -48,8 +49,17 @@ RUN apt-get update \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
+# Install nodejs for Jupyter lab extensions
+RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+RUN sudo apt-get install -y nodejs
+RUN sudo apt-get install -y build-essential
+
 # Install python3 packages
 RUN pip3 install jupyter pandas numpy matplotlib neo h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn
+
+# Install Jupyterlab and packages
+RUN pip3 install jupyterlab
+RUN jupyter labextension install jupyterlab-toc jupyterlab_bokeh @jupyterlab/plotly-extension @jupyterlab/github
 
 # Install python 2.7 and pip package manager
 RUN apt-get install -y python2.7 python-pip
@@ -97,8 +107,9 @@ RUN python2 -m ipykernel install --user
 # Install Jupyter notebook extensions
 RUN jupyter contrib nbextension install --system
 
-# Run the Jupyter notebook
-CMD jupyter notebook --notebook-dir=/home --allow-root
+# Run the Jupyter notebook (comment out 1st command that runs the traditional notebook)
+# CMD jupyter notebook --notebook-dir=/home --allow-root
+CMD jupyter lab --allow-root
 
 WORKDIR /home
 RUN pwd
