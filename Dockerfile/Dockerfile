@@ -1,5 +1,5 @@
-# use Ubuntu 16.04 base image
-FROM ubuntu:16.04
+# use Ubuntu 18.04 base image (stepped up from 16.04)
+FROM ubuntu:18.04
 
 MAINTAINER cchorn "chorn@pitt.edu"
 
@@ -53,18 +53,19 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs
 RUN sudo apt-get install -y build-essential
+RUN npm install -g yarn
 
 # Install python3 packages
-RUN pip3 install jupyter pandas numpy matplotlib neo h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn
+RUN pip3 install jupyter pandas numpy matplotlib neo h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn plotly bokeh scikit-image scikit-learn
 
-# Install Jupyterlab and packages
+# Install Jupyterlab and extensions
 RUN pip3 install jupyterlab
-RUN jupyter labextension install jupyterlab-toc jupyterlab_bokeh @jupyterlab/plotly-extension @jupyterlab/github
+RUN jupyter labextension install @jupyterlab/toc jupyterlab_bokeh @jupyterlab/plotly-extension @jupyterlab/github
 
 # Install python 2.7 and pip package manager
 RUN apt-get install -y python2.7 python-pip
 RUN sudo -H pip2 install --upgrade pip
-RUN pip install pandas numpy matplotlib neo h5py ggplot scipy statsmodels seaborn ipykernel pybursts blackfynn
+RUN pip install pandas numpy matplotlib neo h5py ggplot scipy statsmodels seaborn ipykernel pybursts blackfynn plotly
 
 # Install R
 RUN apt-get install -y r-base r-base-dev

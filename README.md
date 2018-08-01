@@ -11,9 +11,9 @@ Docker can GREATLY reduce the time (and expertise) needed to install, run, and m
 By producing a Docker image, subsequent users can run the original versions of the software used for data analysis.
 
 # How to get started with Docker:
-Docker can run on on Windows, OSX, and Linux. Installation of Docker on Windows and OSX comes with a lightweight Linux virtual environment. To get started, follow these steps:
+Docker can run on on Windows, macOS, and Linux. Installation of Docker on Windows and macOS comes with a lightweight Linux virtual environment. To get started, follow these steps:
 ### 1. Install Docker ...
-for [Windows](https://docs.docker.com/docker-for-windows/install/), [OSX](https://docs.docker.com/docker-for-mac/install/), or some flavor of Linux, [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/engine/installation/linux/docker-ce/debian/), [CentOS](https://docs.docker.com/engine/installation/linux/docker-ce/centos/), and [Fedora](https://docs.docker.com/engine/installation/linux/docker-ce/fedora/). You only need the free community edition of Docker.
+for [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/), or some flavor of Linux, [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/engine/installation/linux/docker-ce/debian/), [CentOS](https://docs.docker.com/engine/installation/linux/docker-ce/centos/), and [Fedora](https://docs.docker.com/engine/installation/linux/docker-ce/fedora/). You only need the free community edition of Docker.
 ### 2. Get a free Docker ID ...
 by going to [Docker cloud](https://cloud.docker.com/). This will allow sign-in to the cloud service to download and search for Docker images.
 
@@ -35,16 +35,21 @@ docker ps -a
 docker run [image name]
 ```
 # What's in the Docker image?
-The "sparc:jupyter_V1.2" image is loaded with analytical software, including:
+The "sparc:jupyter_V1.4" image runs as a ***[Ubuntu 18.04, Linux](https://wiki.ubuntu.com/Releases)***
+distribution of Linux loaded with analytical software, including:  
 
-* ***[Python 3.5.2](https://www.python.org/downloads/)***   
+* ***[Python 3.6.5](https://www.python.org/downloads/)***   
 Python is a high-level interpreted general-purpose programming language. Python 3.5 is the version of Python in the image. Entering the command "python" in the container's terminal will start Python 3.5 in the command line.
 
 * ***[Python 2.7.12](https://www.python.org/downloads/)***    
 Entering "python2" at the command line will start Python 2.7. Python 2 provides access to a multitude of older Python software.
 
-* ***[R 3.4.3](https://www.r-project.org/)***    
+* ***[R 3.4.4](https://www.r-project.org/)***    
 R is a software environment for statistical computing and graphics.
+
+* ***[Jupyterlab 0.334](https://jupyterlab.readthedocs.io/en/stable/index.html) and add-ons***
+Interface for Jupyter notebooks, terminal, text editor, viewing various file types
+[JupyterLab extensions](https://github.com/topics/jupyterlab-extension) (extensions included, github, plotly, table of contents, and bokeh)
 
 * ***[Jupyter 4.4.0](https://jupyter.org/) and add-ons***   
 [Jupyter notebook extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/) (extensions to notebook functions, e.g., automatic table of contents, spellchecker, scratchpad, conversion of Python 2 to 3)    
@@ -56,7 +61,11 @@ R is a software environment for statistical computing and graphics.
 [scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 2 & 3       
 [matplotlib](https://matplotlib.org/) (plotting), Python 2 & 3    
 [ggplot](http://ggplot.yhathq.com/) (plotting; a Python port of the popular R ggplot2 package), Python 2 & 3       
-[seaborn](https://seaborn.pydata.org/)  (statistical data visualization built on top of matplotlib), Python 2 & 3    
+[seaborn](https://seaborn.pydata.org/)  (statistical data visualization built on top of matplotlib), Python 2 & 3
+[plotly](https://plot.ly/python/) (plotting) Python 2 & 3
+[bokeh](https://bokeh.pydata.org/en/latest/) (plotting), Python 2 & 3
+[scikit-image](https://scikit-image.org) (image processing), Python 3
+[scikit-learn](http://scikit-learn.org/stable/) (machine learning), Python 3    
 [statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3    
 [rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 2 & 3    
 [h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
@@ -93,13 +102,13 @@ A Dockerfile used to create the image is included in this Github repository [1],
 # How to use the Docker image
 First, download the image by entering this command in the terminal on your host machine:
 ```
-docker pull cchorn/sparc:jupyter_V1.2
+docker pull cchorn/sparc:jupyter_V1.4
 ```
 Next, enter:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.2
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.4
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.2". The command also contains three flags:
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.4". The command also contains three flags:
 * "-it" = interactive terminal, which will keep the container running in the terminal until you close it.
 * "-p" = port mapping from the host port on the left and container port on the right of the ":". This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.
 * "-v" = volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; the host's folder name should be customized for your computer.
@@ -141,7 +150,7 @@ This new image will be loaded into the Docker image list on your local machine. 
 
 [1] To build the docker image from the Dockerfile run the following command from the Dockerfile folder:
 ```
-docker build --tag cchorn/sparc:jupyter_V1.2 .
+docker build --tag cchorn/sparc:jupyter_V1.4 .
 ```
 
 ---------------------
