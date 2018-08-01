@@ -61,11 +61,11 @@ Interface for Jupyter notebooks, terminal, text editor, viewing various file typ
 [scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 2 & 3       
 [matplotlib](https://matplotlib.org/) (plotting), Python 2 & 3    
 [ggplot](http://ggplot.yhathq.com/) (plotting; a Python port of the popular R ggplot2 package), Python 2 & 3       
-[seaborn](https://seaborn.pydata.org/)  (statistical data visualization built on top of matplotlib), Python 2 & 3
-[plotly](https://plot.ly/python/) (plotting) Python 2 & 3
-[bokeh](https://bokeh.pydata.org/en/latest/) (plotting), Python 2 & 3
-[scikit-image](https://scikit-image.org) (image processing), Python 3
-[scikit-learn](http://scikit-learn.org/stable/) (machine learning), Python 3    
+[seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 2 & 3    
+[plotly](https://plot.ly/python/) (plotting) Python 2 & 3    
+[bokeh](https://bokeh.pydata.org/en/latest/) (plotting), Python 2 & 3    
+[scikit-image](https://scikit-image.org) (image processing), Python 3    
+[scikit-learn](http://scikit-learn.org/stable/) (machine learning), Python 3     
 [statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3    
 [rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 2 & 3    
 [h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
