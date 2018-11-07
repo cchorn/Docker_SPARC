@@ -1,121 +1,149 @@
 # What is Docker?
 Docker is a software system that uses containers. Containers are isolated user-defined instances that operate as separate computers and have various levels of restricted access to the host computer's resources (e.g., shared folders). More than one container can run simultaneously on a host, communicating with the host and other containers.
 
-A "Docker image" is analogous to an executable file, which contains multiple applications, compared to a "Docker container," which is a running instance of the image.
+A Docker container is a running instance of the Docker image.
 
 # Advantages of Docker:
 There are two significant advantages when using Docker images for science projects:
 #### 1. Easy installation.
-Docker can GREATLY reduce the time (and expertise) needed to install, run, and maintain software, especially analytic software using Python, R, and other open source resources, such as [Jupyter notebooks](https://jupyter.org/); Jupyter runs in an internet browser to provide access to multiple [programming kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) and is a good way to store notes and analyses for sharing and reproduction. A stockpile of pre-built Docker images are available for download from [Docker Hub](https://hub.docker.com/); Docker Hub is a cloud service similar to Github but designed to maintain Docker images, which can require gigabytes of storage.
-#### 2. Reproducible/shareable software environments.
-By producing a Docker image, subsequent users can run the original versions of the software used for data analysis.
+Docker GREATLY reduces the time (and expertise) needed to install, run, and maintain software, especially analytic software using Python, R, and other open source resources, such as [Jupyter notebooks](https://jupyter.org/); Jupyter runs in an internet browser to provide access to multiple [programming kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) and is a good way to store notes and analyses for sharing and reproduction. A stockpile of pre-built Docker images are available for download from [Docker Hub](https://hub.docker.com/); Docker Hub is a cloud service similar to Github but designed to maintain Docker images.
+#### 2. Reproducible/shareable computing environments.
+By using and sharing a specific Docker image for analysis, subsequent users can run the original versions of the software and recreate the analysis or extend the work to new problems.
 
-# How to get started with Docker:
-Docker can run on on Windows, macOS, and Linux. Installation of Docker on Windows and macOS comes with a lightweight Linux virtual environment. To get started, follow these steps:
+# How to get started using Docker:
+Docker can run on Windows, macOS, and Linux. Installation of Docker on Windows and macOS comes with a lightweight Linux virtual environment. Follow these installation steps:
 ### 1. Install Docker ...
-for [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/), or some flavor of Linux, [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/engine/installation/linux/docker-ce/debian/), [CentOS](https://docs.docker.com/engine/installation/linux/docker-ce/centos/), and [Fedora](https://docs.docker.com/engine/installation/linux/docker-ce/fedora/). You only need the free community edition of Docker.
+for [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/), or populars flavor of Linux, [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/engine/installation/linux/docker-ce/debian/), [CentOS](https://docs.docker.com/engine/installation/linux/docker-ce/centos/), and [Fedora](https://docs.docker.com/engine/installation/linux/docker-ce/fedora/). You need the free community edition of Docker.
 ### 2. Get a free Docker ID ...
-by going to [Docker cloud](https://cloud.docker.com/). This will allow sign-in to the cloud service to download and search for Docker images.
+Go to [Docker cloud](https://cloud.docker.com/) to sign-up. This will allow sign-in to the cloud service to download and search for Docker images.
 
 # Basic Docker commands:
 You can walk through the official [Docker tutorial](https://docker-curriculum.com/), which explains basic commands and provides test images. There is also a command [cheatsheet](https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf).
 
-Here are frequently used commands for the terminal:
+Here are frequently used commands used at the terminal to see which docker images you have installed, those currently running, and how to run a new one:
 
-*To list all installed docker images on your machine use ...*
+*To list installed docker images on your local machine ...*
 ```
 docker images
 ```
-*To list running and stopped containers use ...*
+*To list running and stopped containers ...*
 ```
 docker ps -a
 ```
-*To run a container from an image (notice the lack of flags in this command, such as sharing folders and ports between the container and host computer; more about this later) ...*
+*To run a container from an image (you can add flags to this command, such as shared folders and ports between the container and host computer; more about this later) ...*
 ```
 docker run [image name]
 ```
-# What's in the Docker image?
-The "sparc:jupyter_V1.4" image runs as a ***[Ubuntu 18.04, Linux](https://wiki.ubuntu.com/Releases)***
-distribution of Linux loaded with analytical software, including:  
+# What's in the SPARC supplied Docker image?
+The "sparc:jupyter_V1.5" image runs ***[Ubuntu 18.04 Linux](https://wiki.ubuntu.com/Releases)*** distribution with the following analytic software:    
+***NOTE: To maintain compatibility, some software is kept at slightly less than the current version; also, the list of Python 2 and R packages is short to reduce the size of the docker image, additional packages can be installed and a new Docker image can be saved to meet the needs of each user.***
 
-* ***[Python 3.6.5](https://www.python.org/downloads/)***   
-Python is a high-level interpreted general-purpose programming language. Python 3.5 is the version of Python in the image. Entering the command "python" in the container's terminal will start Python 3.5 in the command line.
+* ***[Python 3.6.6](https://www.python.org/downloads/)***   
+Python is a high-level interpreted general-purpose programming language. Entering the command "python" in the container's terminal will start Python 3 on the command line.
 
-* ***[Python 2.7.12](https://www.python.org/downloads/)***    
-Entering "python2" at the command line will start Python 2.7. Python 2 provides access to a multitude of older Python software.
+* ***[Python 2.7.15](https://www.python.org/downloads/)***    
+Entering "python2" at the command line will start Python 2, which provides usage for a multitude of older Python 2 software.
 
 * ***[R 3.4.4](https://www.r-project.org/)***    
-R is a software environment for statistical computing and graphics.
+R is a software environment for statistical computing and graphics. Entering "R" on the command line starts R from the terminal.
 
-* ***[Jupyterlab 0.334](https://jupyterlab.readthedocs.io/en/stable/index.html) and add-ons***
-Interface for Jupyter notebooks, terminal, text editor, viewing various file types
-[JupyterLab extensions](https://github.com/topics/jupyterlab-extension) (extensions included, github, plotly, table of contents, and bokeh)
+* ***[Jupyter notebook 4.4.0](https://jupyter.org/)***   
+Jupyter notebook is an open-source web browser application platform (this can run on your local machine or by logging into a server) to create notebooks containing text notes, programming code, and graphics, which are shareable. Typical usage for these notebooks is to run Python code but many other languages can also be used, including R.  
 
-* ***[Jupyter 4.4.0](https://jupyter.org/) and add-ons***   
-[Jupyter notebook extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/) (extensions to notebook functions, e.g., automatic table of contents, spellchecker, scratchpad, conversion of Python 2 to 3)    
-[ipywidgets](https://ipywidgets.readthedocs.io/en/stable/index.html)  (interactive HTML widgets for Jupyter notebooks)    
+* ***[Jupyter lab 0.35.2](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
+Jupyter lab is a new interface for Jupyter notebooks (it does still support using notebooks in the traditional way; i.e., one notebook per browser tab). The Jupyter lab interface greatly increases functionality by providing a file browser,  many cutting-edge extensions, and the ability to a make panels in a single browser tab (e.g., a terminal, notebook, images all side-by-side). 
 
-* ***Python packages:***   
+* ***[JupyterLab extensions](https://github.com/topics/jupyterlab-extension)***    
+Several Jupyter lab notebook extensions are included, with others available through installation (https://github.com/topics/jupyterlab-extension). The installed extensions include:    
+*---new interface tabs---*      
+[table of contents](https://github.com/jupyterlab/jupyterlab-toc) (table of contents for Jupyter notebooks)    
+[cell tags](https://github.com/jupyterlab/jupyterlab-celltags) (descriptive tags can be added to notebook cells)   
+[google drive](https://github.com/jupyterlab/jupyterlab-google-drive) (google drive collaboration)        
+[github](https://github.com/jupyterlab/jupyterlab-github) (file browser for github repos)   
+[git](https://github.com/jupyterlab/jupyterlab-git) (version control)       
+*---plotting and graphics---*   
+[plotly](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension) (plotting)  
+[geojson](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension) (geo mapping extension)    
+[drawio](https://github.com/QuantStack/jupyterlab-drawio) (a vector drawing program)   
+[bokeh](https://github.com/bokeh/jupyterlab_bokeh) (plotting)      
+*---file format rendering---*    
+[html](https://github.com/mflevine/jupyterlab_html) (renders html documents)    
+
+* ***Python packages:***    
+*---numerical manipulations and dataframes---*   
 [numpy](http://www.numpy.org/) (numerical arrays), Python 2 & 3  
 [pandas](https://pandas.pydata.org/) (dataframes and numerical analysis), Python 2 & 3    
-[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 2 & 3       
-[matplotlib](https://matplotlib.org/) (plotting), Python 2 & 3    
-[ggplot](http://ggplot.yhathq.com/) (plotting; a Python port of the popular R ggplot2 package), Python 2 & 3       
+[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 2 & 3     
+*---plotting and visualizations---*   
+[matplotlib](https://matplotlib.org/) Python 2 & 3    
+[ggplot](http://ggplot.yhathq.com/) (a Python port of the popular R ggplot2 package), Python 2 & 3       
 [seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 2 & 3    
-[plotly](https://plot.ly/python/) (plotting) Python 2 & 3    
-[bokeh](https://bokeh.pydata.org/en/latest/) (plotting), Python 2 & 3    
-[scikit-image](https://scikit-image.org) (image processing), Python 3    
+[plotly](https://plot.ly/python/) Python 2 & 3    
+[bokeh](https://bokeh.pydata.org/en/latest/) Python 2 & 3 
+[altair](https://altair-viz.github.io) Python 3 
+*---statistics and machine learning---*   
+[statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3  
 [scikit-learn](http://scikit-learn.org/stable/) (machine learning), Python 3     
-[statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3    
+*---image analysis---*   
+[scikit-image](https://scikit-image.org) Python 3    
+*---electrophysiology---*   
+[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 2 & 3   
+[pybursts](https://github.com/rpoddighe/pybursts) (algorithm to detect activity bursts in time series data; Python implementation of the R "bursts" package), Python 2    
+*---misc---*   
 [rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 2 & 3    
 [h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
-[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 2 & 3   
-[notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3     
-[pybursts](https://github.com/rpoddighe/pybursts) (algorithm to detect activity bursts in time series data; Python implementation of the R "bursts" package), Python 2    
-[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client), API for interaction with the Blackfynn platform for data storage/analysis, Python 2
+[notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3  
+[jupytext](https://github.com/mwouts/jupytext) (edit jupyter notebooks as plain text python files), Python 3  
+[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 2    
+    
 
-* ***R packages:***    
+* ***R packages:***   
+*---numerical manipulations and dataframes---*   
 [dplyr](http://dplyr.tidyverse.org/) (dataframe manipulation)    
 [plyr](https://cran.r-project.org/web/packages/plyr/index.html) (dataframe manipulation)    
 [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) (dataframe manipulation)    
 [tidyr](https://cran.r-project.org/web/packages/tidyr/) (data tidying)      
+*---plotting and visualizations---*   
 [ggplot2](http://ggplot2.org/) (plotting; based on the book "The Grammar of Graphics" by Leland Wilkinson, 2005)    
+*---statistics---*   
 [pwr](https://cran.r-project.org/web/packages/pwr/) (power analysis)       
 [psych](https://cran.r-project.org/web/packages/psych/) (among many things this package has convenient data summary statistics functions)    
-[ez](https://cran.r-project.org/web/packages/ez/) (analysis and visualization of factorial experiments)     
-[STAR](https://cran.r-project.org/web/packages/STAR/index.html) (Spike Train Analysis with R)   
+[ez](https://cran.r-project.org/web/packages/ez/) (analysis and visualization of factorial experiments)   
+*---electrophysiology---*   
+[STAR](https://cran.r-project.org/web/packages/STAR/index.html) (Spike Train Analysis with R)     
 [bursts](https://cran.r-project.org/web/packages/bursts/index.html) (algorithm to detect activity bursts in time series data)
 
-* ***Jupyter "how-to" notebooks:***
-The file "Index.ipynb" contains links to the following notebooks stored in the "Example_Jupyter_Notebooks" directory:    
-**1-check the versions of Python 2, Python 3, and R ... and installed packages**     
-**2-use Python and R in the same notebook**,
-uses the Python package "rpy2" to create a bridge       
-**3-pass data between notebooks running different versions of Python**, uses the built-in notebook command ["%store"](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html) to move data from Python 2 to Python 3 notebook (note: there is no easy way to pass data between Python 2 and 3 in the same notebook)      
-**4-load a Spike 2 file into Python**, uses the Python "Neo" package; other file type imports are supported, e.g., [Matlab, Axon Instruments, HDF5, Neuroshare, Plexon, Tucker Davis, etc.](http://neo.readthedocs.io/en/0.5.0/io.html), also, shows how to import an external script into the notebook (a good way to reduce code clutter)    
-**5-use Blackfynn Python 2 API**, brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set your credentials (i.e., Blackfynn profile) in the Docker container to use the API; your Blackfynn profile will be erased when the container is stopped and removed from your system (you can enter your credentials each time you run a new container or save the container as a new image, which will save your profile, see below). A folder is included with test files for upload to Blackfynn (Spike2, CSV, Excel, PDF, PNG).
+* ***Jupyter "how-to" notebooks included in the Docker image:***    
+**"Index" notebook**; contains links to the following notebooks stored in the "Example_Jupyter_Notebooks" directory:   
+**1.check software versions**; checks the software versions of Python 3, Python 2, and R and their packages   
+**2.python and R in same notebook**; uses the Python package "rpy2" to create a bridge between Python and R in the same notebook   
+**3.pass data**; uses the built-in notebook command ["%store"](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html) to move data between notebooks   
+**4.python load spike2** uses the Python "Neo" package; other file type imports are supported, e.g., [Matlab, Axon Instruments, HDF5, Neuroshare, Plexon, Tucker Davis, etc.](http://neo.readthedocs.io/en/0.5.0/io.html), also, shows how to import an external script into the notebook (a good way to reduce code clutter)   
+**5.image analysis**; uses scikit-image Python package to separate colors in an immunohistological image (http://scikit-image.org).   
+**6.blackfynn api**; brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set your credentials (i.e., Blackfynn profile) in the Docker container to use the API
 
-* ***Customization.*** You can also install additional Python, R, and operating system packages in the container using standard terminal commands, e.g., "pip" commands for python 2, "pip3" commands for python 3, "install.packages()" in R command line, and "apt install" for the Ubuntu Linux terminal. You will need to "commit" these software changes to a new image to save (see below).
+* ***Customization.*** You can install additional Python, R, and operating system packages in the container using standard terminal commands, e.g., "pip3" commands for python 3, "pip" commands for python 2, and "install.packages()" in R command line; use "apt install" in the Linux terminal for Ubuntu packages. You will need to "commit" these software changes to a new image to save (see below).
 
-A Dockerfile used to create the image is included in this Github repository [1], but you DO NOT need to create the image. This is time consuming and depending on computer speed could easily exceed 15 min. Instead, you can ***download the pre-built image from Docker Hub (see below) and begin working on data analysis immediately!***
+The Dockerfile used to create the image is included in this repository, but you DO NOT need to create the image. This is time consuming and depending on the speed of your computer could easily exceed 15 min. Instead, you can ***download the pre-built image from Docker Hub (see below) and begin working on data analysis immediately!***
 
 # How to use the Docker image
-First, download the image by entering this command in the terminal on your host machine:
+First, download the image by entering this command in the terminal on your host machine (do this after installing the Docker application on your computer):
 ```
-docker pull cchorn/sparc:jupyter_V1.4
+docker pull cchorn/sparc:jupyter_V1.5
 ```
 Next, enter:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.4
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.5
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.4". The command also contains three flags:
-* "-it" = interactive terminal, which will keep the container running in the terminal until you close it.
-* "-p" = port mapping from the host port on the left and container port on the right of the ":". This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.
-* "-v" = volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; the host's folder name should be customized for your computer.
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.4". The command also contains three flags:    
+1 - "-it", interactive terminal, which will keep the container running in the terminal until you close it.    
+2 - "-p", port mapping from the host port on the left and container port on the right of the ":" in the command. This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.   
+3 - "-v", volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; ***the host's folder name should be customized for your computer: please change "Desktop" to match a folder on your computer.***     
+4 - "--rm" flag will cause automatic deletion of stopped containers (stop the running container by executing keystrokes "ctrl-c" in the terminal). *If you intend to make software changes and save a new image you need to remove this flag before running the container.*  
 
-Note: the "--rm" flag will cause automatic deletion of stopped containers (stop the running container by executing keystrokes "ctrl-c"). *If you intend to make software changes and save a new image you need to remove this flag before running the container.*  
+After entering the "docker run" command a URL will be generated (http://localhost:8888/ + a security token). Copy the URL to your browser to see the Jupyter notebook directory (also copy the security token and enter it if requested). On some host machines (e.g., Windows 7 and 8), you will need to determine the ip address of the running container and use this instead of "localhost" (e.g., [docker-machine ip](https://docs.docker.com/machine/reference/ip/)).        
 
-After entering the "docker run" command a URL will be generated (http://localhost:8888/ + a security token). Copy the URL to your browser to see the Jupyter notebook directory. **Success!** From here, you can create notebooks using Python and R and access the container's command line terminal in the host browser (menu button on far right). New notebooks and files you create will be saved to your host machine folder mapped with the "docker run" command. Any documents that you want to save must be stored in the container's "work" directory, which is mapped to host's volume you specified using the "-v" flag. On some host machines (e.g., Windows 7 and 8), you will need to determine the ip address of the running container and use this instead of "localhost" (e.g., [docker-machine ip](https://docs.docker.com/machine/reference/ip/)).
+**Success!** You should now see the Jupyter lab interface. From here, you can create notebooks using Python and R and access the container's command line terminal. New notebooks and files you create will be saved to your host machine folder mapped with the "docker run" command. Any documents that you want to save must be stored in the container's "work" directory, which is mapped to host's volume you specified using the "-v" flag. 
 
 The running container can be stopped by entering keystrokes "ctrl-c" in the host's terminal. If you ran Docker without the "--rm" flag, you can now see the exited container in the container list by entering:
 ```
@@ -131,7 +159,7 @@ Alternatively, if you made software changes, you can save the container as a new
 ```
 docker commit [container name] [repository name:tag]
 ```
-This new image will be loaded into the Docker image list on your local machine. To see the list use the "docker images" command. You can also backup the image to your Docker cloud account using the ["push" command](https://docs.docker.com/engine/reference/commandline/push/).
+This new image will be loaded into the Docker image list on your local machine. To see the list use the "docker images" command. You can also backup the image to your Docker cloud account using the ["push" command](https://docs.docker.com/engine/reference/commandline/push/). And, this image can then be shared with the scientific community.    
 
 # Other resources:
 * [Jupyter tutorial](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/)
@@ -142,15 +170,9 @@ This new image will be loaded into the Docker image list on your local machine. 
 * [PyPI - the Python Package Index](https://pypi.python.org/pypi), search for a package in the archive of > *129,000* packages and growing!
 * [R package list by name](https://cran.r-project.org/web/packages/available_packages_by_name.html), there are > *12,000* packages! The R project site does not have a search function but you can use [Rseek](https://rseek.org/) database.
 
-# Future plans for the base image:
-* include example notebooks for: (1) plotting with matplotlib, seaborn, and ggplot2; and (2) statistics
-* include specific neurophysiology packages for viewing, spike detection, clustering, etc.
-* include more test files for Blackfynn
-* other suggests welcome!
-
-[1] To build the docker image from the Dockerfile run the following command from the Dockerfile folder:
+If you wish to build the docker image from the Dockerfile run the following command from the Dockerfile folder (Note: downloading the pre-built image from Docker cloud is easier):
 ```
-docker build --tag cchorn/sparc:jupyter_V1.4 .
+docker build --tag cchorn/sparc:jupyter_V1.5 .
 ```
 
 ---------------------
@@ -167,8 +189,6 @@ This work was supported by awards from the National Institutes of Health (NIH) -
 ---------------------
 
 ###### *MIT license*
-
-###### *Copyright (c) 2018 Charles Horn*
 
 ###### *Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:*
 
