@@ -79,7 +79,7 @@ Several Jupyter lab notebook extensions are included, with others available thro
 [ggplot](http://ggplot.yhathq.com/) (a Python port of the popular R ggplot2 package), Python 2 & 3       
 [seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 2 & 3    
 [plotly](https://plot.ly/python/) Python 2 & 3    
-[bokeh](https://bokeh.pydata.org/en/latest/) Python 2 & 3 
+[bokeh](https://bokeh.pydata.org/en/latest/) Python 2 & 3    
 [altair](https://altair-viz.github.io) Python 3 
 *---statistics and machine learning---*   
 [statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3  
