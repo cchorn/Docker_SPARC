@@ -135,7 +135,7 @@ Next, enter:
 ```
 docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.5
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.5". The command also contains three flags:    
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.5". The command also contains four flags:    
 1 - "-it", interactive terminal, which will keep the container running in the terminal until you close it.    
 2 - "-p", port mapping from the host port on the left and container port on the right of the ":" in the command. This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.   
 3 - "-v", volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; ***the host's folder name should be customized for your computer: please change "Desktop" to match a folder on your computer.***     
