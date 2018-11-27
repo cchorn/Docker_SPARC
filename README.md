@@ -94,7 +94,7 @@ Several Jupyter lab notebook extensions are included, with others available thro
 [h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
 [notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3  
 [jupytext](https://github.com/mwouts/jupytext) (edit jupyter notebooks as plain text python files), Python 3  
-[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 2    
+[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 2 & 3
     
 
 * ***R packages:***   
