@@ -51,7 +51,7 @@ RUN apt-get update \
   && pip3 install --upgrade pip 
 
 # Install python3 packages ... (only neo 0.5.2 will import Spike2 files)
-RUN pip3 install jupyter jupyterlab pandas numpy matplotlib neo==0.5.2 h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn plotly bokeh scikit-image scikit-learn sympy jupytext altair vega_datasets simplegeneric rpy2==2.8.5
+RUN pip3 install jupyter jupyterlab pandas numpy matplotlib neo==0.5.2 h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn blackfynn plotly bokeh scikit-image scikit-learn sympy jupytext altair vega_datasets simplegeneric rpy2==2.8.5
 
 # Install Python 2 and packages
 ####################################################
