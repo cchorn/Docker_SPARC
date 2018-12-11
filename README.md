@@ -35,7 +35,7 @@ docker ps -a
 docker run [image name]
 ```
 # What's in the SPARC supplied Docker image?
-The "sparc:jupyter_V1.5" image runs ***[Ubuntu 18.04 Linux](https://wiki.ubuntu.com/Releases)*** distribution with the following analytic software:    
+The "sparc:jupyter_V1.6" image runs ***[Ubuntu 18.04 Linux](https://wiki.ubuntu.com/Releases)*** distribution with the following analytic software:    
 ***NOTE: To maintain compatibility, some software is kept at slightly less than the current version; also, the list of Python 2 and R packages is short to reduce the size of the docker image, additional packages can be installed and a new Docker image can be saved to meet the needs of each user.***
 
 * ***[Python 3.6.6](https://www.python.org/downloads/)***   
@@ -129,13 +129,13 @@ The Dockerfile used to create the image is included in this repository, but you 
 # How to use the Docker image
 First, download the image by entering this command in the terminal on your host machine (do this after installing the Docker application on your computer):
 ```
-docker pull cchorn/sparc:jupyter_V1.5
+docker pull cchorn/sparc:jupyter_V1.6
 ```
 Next, enter:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.5
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.6
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.5". The command also contains three flags:    
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.6". The command also contains three flags:    
 1 - "-it", interactive terminal, which will keep the container running in the terminal until you close it.    
 2 - "-p", port mapping from the host port on the left and container port on the right of the ":" in the command. This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.   
 3 - "-v", volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; ***the host's folder name should be customized for your computer: please change "Desktop" to match a folder on your computer.***     
@@ -172,7 +172,7 @@ This new image will be loaded into the Docker image list on your local machine. 
 
 If you wish to build the docker image from the Dockerfile run the following command from the Dockerfile folder (Note: downloading the pre-built image from Docker cloud is easier):
 ```
-docker build --tag cchorn/sparc:jupyter_V1.5 .
+docker build --tag cchorn/sparc:jupyter_V1.6 .
 ```
 
 ---------------------
