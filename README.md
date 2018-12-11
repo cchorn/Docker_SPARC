@@ -38,7 +38,7 @@ docker run [image name]
 The "sparc:jupyter_V1.6" image runs ***[Ubuntu 18.04 Linux](https://wiki.ubuntu.com/Releases)*** distribution with the following analytic software:    
 ***NOTE: To maintain compatibility, some software is kept at slightly less than the current version; also, the list of Python 2 and R packages is short to reduce the size of the docker image, additional packages can be installed and a new Docker image can be saved to meet the needs of each user.***
 
-* ***[Python 3.6.6](https://www.python.org/downloads/)***   
+* ***[Python 3.6.7](https://www.python.org/downloads/)***   
 Python is a high-level interpreted general-purpose programming language. Entering the command "python" in the container's terminal will start Python 3 on the command line.
 
 * ***[Python 2.7.15](https://www.python.org/downloads/)***    
@@ -47,10 +47,10 @@ Entering "python2" at the command line will start Python 2, which provides usage
 * ***[R 3.4.4](https://www.r-project.org/)***    
 R is a software environment for statistical computing and graphics. Entering "R" on the command line starts R from the terminal.
 
-* ***[Jupyter notebook 4.4.0](https://jupyter.org/)***   
+* ***[Jupyter notebook 5.7.2](https://jupyter.org/)***   
 Jupyter notebook is an open-source web browser application platform (this can run on your local machine or by logging into a server) to create notebooks containing text notes, programming code, and graphics, which are shareable. Typical usage for these notebooks is to run Python code but many other languages can also be used, including R.  
 
-* ***[Jupyter lab 0.35.2](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
+* ***[Jupyter lab 0.35.4](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
 Jupyter lab is a new interface for Jupyter notebooks (it does still support using notebooks in the traditional way; i.e., one notebook per browser tab). The Jupyter lab interface greatly increases functionality by providing a file browser,  many cutting-edge extensions, and the ability to a make panels in a single browser tab (e.g., a terminal, notebook, images all side-by-side). 
 
 * ***[JupyterLab extensions](https://github.com/topics/jupyterlab-extension)***    
@@ -120,7 +120,9 @@ Several Jupyter lab notebook extensions are included, with others available thro
 **3.pass data**; uses the built-in notebook command ["%store"](https://ipython.org/ipython-doc/rel-0.12/config/extensions/storemagic.html) to move data between notebooks   
 **4.python load spike2** uses the Python "Neo" package; other file type imports are supported, e.g., [Matlab, Axon Instruments, HDF5, Neuroshare, Plexon, Tucker Davis, etc.](http://neo.readthedocs.io/en/0.5.0/io.html), also, shows how to import an external script into the notebook (a good way to reduce code clutter)   
 **5.image analysis**; uses scikit-image Python package to separate colors in an immunohistological image (http://scikit-image.org).   
-**6.blackfynn api**; brief example of uploading and and checking files on the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io/platform/index.html); **NOTE:** you'll need to set your credentials (i.e., Blackfynn profile) in the Docker container to use the API
+**6.blackfynn Python 3 api, ussing the Python library**; example of uploading files to the Blackfynn platform; see [Blackfynn's documentation for more information](http://docs.blackfynn.io)     
+**7.blackfynn Python 3 api, using shell commands**; using similar commands, a Python3 script is also included   
+
 
 * ***Customization.*** You can install additional Python, R, and operating system packages in the container using standard terminal commands, e.g., "pip3" commands for python 3, "pip" commands for python 2, and "install.packages()" in R command line; use "apt install" in the Linux terminal for Ubuntu packages. You will need to "commit" these software changes to a new image to save (see below).
 
@@ -184,7 +186,7 @@ Michael Sciullo, University of Pittsburgh; testing Docker functionality
 
 This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program, including these projects:*
 ##### 1. *Defining gastric vagal mechanisms underlying emetic activation using novel electrophysiological and optical mapping technology. [3U18EB021772-02S2](https://projectreporter.nih.gov/project_info_description.cfm?aid=9533820&icde=37670422&ddparam=&ddvalue=&ddsub=&cr=2&csb=default&cs=ASC&pball=).*
-##### 2. *Closed-loop neuroelectric control of emesis and gastric motility [1U18TR002205-01](https://projectreporter.nih.gov/project_info_description.cfm?aid=9405061&icde=37670484&ddparam=&ddvalue=&ddsub=&cr=5&csb=default&cs=ASC&pball=)*     
+##### 2. *Closed-loop neuroelectric control of emesis and gastric motility [1U18TR002205](https://projectreporter.nih.gov/project_info_description.cfm?aid=9405061&icde=37670484&ddparam=&ddvalue=&ddsub=&cr=5&csb=default&cs=ASC&pball=)*     
 
 ---------------------
 
