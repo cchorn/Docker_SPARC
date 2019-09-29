@@ -37,8 +37,8 @@ ENV SHELL=/bin/bash \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
 
-# Copy example notebooks to tmp directory
-COPY Jupyter_Notebooks/ /home/
+# # Copy example notebooks to tmp directory
+# COPY Jupyter_Notebooks/ /home/
 
 # Install Python 3 packages
 ####################################################
@@ -58,7 +58,7 @@ RUN pip3 install jupyter jupyterlab pandas numpy matplotlib neo==0.5.2 h5py ggpl
 
 # Install python 2.7 and pip package manager ... an apt-get update is needed to configure the package manager
 RUN apt-get update \
-	&& apt-get install -y python2.7 python-pip 
+    && apt-get install -y python2.7 python-pip 
 
 RUN sudo -H pip2 install --upgrade pip
 
@@ -70,14 +70,14 @@ RUN pip install pandas numpy matplotlib neo==0.5.2 h5py ggplot scipy statsmodels
 
 # Install nodejs for Jupyter lab extensions
 # https://github.com/nodesource/distributions
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs 
 
 # Install yarn
 RUN npm install -g yarn
 
 # Install Jupyterlab extensions, commment out those not currently supported
-RUN jupyter labextension install @jupyterlab/toc @jupyterlab/google-drive @jupyterlab/celltags jupyterlab_bokeh @jupyterlab/github qgrid @jupyter-widgets/jupyterlab-manager @jupyterlab/xkcd-extension @jupyterlab/git @jupyterlab/geojson-extension @jupyterlab/plotly-extension @mflevine/jupyterlab_html plotlywidget jupyterlab-drawio
+RUN jupyter labextension install @jupyterlab/toc @jupyterlab/google-drive @jupyterlab/celltags jupyterlab_bokeh @jupyterlab/github @jupyterlab/git qgrid @jupyter-widgets/jupyterlab-manager @jupyterlab/plotly-extension @mflevine/jupyterlab_html plotlywidget jupyterlab-drawio
 
 # Install R and packages
 ####################################################
@@ -93,7 +93,7 @@ RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/lib/R/etc/Rprofile
 
 # Install R Packages and kernel for Jupyter notebook
 RUN Rscript -e "install.packages(c('devtools', 'ggplot2', 'plyr', 'reshape2', 'dplyr', 'tidyr', 'psych', 'pwr', 'STAR', 'ez', 'bursts'))"
-RUN Rscript -e "devtools::install_github('IRkernel/IRkernel')"
+RUN Rscript -e "install.packages('IRkernel')"
 RUN Rscript -e "IRkernel::installspec()"
 
 # Configure Jupyter notebook
