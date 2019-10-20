@@ -50,36 +50,42 @@ R is a software environment for statistical computing and graphics. Entering "R"
 * ***[Jupyter notebook 6.0.1](https://jupyter.org/)***   
 Jupyter notebook is an open-source web browser application platform (this can run on your local machine or by logging into a server) to create notebooks containing text notes, programming code, and graphics, which are shareable. Typical usage for these notebooks is to run Python code but many other languages can also be used, including R.  
 
-* ***[Jupyter lab 1.1.14](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
+* ***[Jupyter lab 1.1.4](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
 Jupyter lab is a new interface for Jupyter notebooks (it does still support using notebooks in the traditional way; i.e., one notebook per browser tab). The Jupyter lab interface greatly increases functionality by providing a file browser,  many cutting-edge extensions, and the ability to a make panels in a single browser tab (e.g., a terminal, notebook, images all side-by-side). 
 
 * ***[JupyterLab extensions](https://github.com/topics/jupyterlab-extension)***    
 Several Jupyter lab notebook extensions are included, with others available through installation (https://github.com/topics/jupyterlab-extension). The installed extensions include:    
-*---new interface tabs---*      
-[table of contents](https://github.com/jupyterlab/jupyterlab-toc) (table of contents for Jupyter notebooks)    
-[cell tags](https://github.com/jupyterlab/jupyterlab-celltags) (descriptive tags can be added to notebook cells)   
-[google drive](https://github.com/jupyterlab/jupyterlab-google-drive) (google drive collaboration)        
-[github](https://github.com/jupyterlab/jupyterlab-github) (file browser for github repos)   
+*---git---* 
+[github](https://github.com/jupyterlab/jupyterlab-github) (file browser for github repos)      
 [git](https://github.com/jupyterlab/jupyterlab-git) (version control)       
-*---plotting and graphics---*   
-[plotly](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension) (plotting)  
-[geojson](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension) (geo mapping extension)    
-[drawio](https://github.com/QuantStack/jupyterlab-drawio) (a vector drawing program)   
-[bokeh](https://github.com/bokeh/jupyterlab_bokeh) (plotting)      
-*---file format rendering---*    
-[html](https://github.com/mflevine/jupyterlab_html) (renders html documents)    
+*---file type viewers---* 
+[html](https://github.com/mflevine/jupyterlab_html)         
+[Excel spreadsheet](https://github.com/quigleyj97/jupyterlab-spreadsheet)    
+*---graphics---*   
+[drawio](https://github.com/QuantStack/jupyterlab-drawio) (a vector drawing program)    
+*---file management---*      
+[favorite folders](https://www.npmjs.com/package/jupyterlab-favorites)    
+[Pyhon file creation](https://github.com/jtpio/jupyterlab-python-file)    
+[file tree](https://github.com/youngthejames/jupyterlab_filetree)
+[google drive](https://github.com/jupyterlab/jupyterlab-google-drive) (google drive collaboration)    
+*---sidebar extensions---*  
+[table of contents](https://github.com/jupyterlab/jupyterlab-toc) (table of contents for Jupyter notebooks)   
+*---notebook functionality---* 
+[vim key bindings in notebook](https://github.com/jwkvam/jupyterlab-vim) (vim and neovim text editors are also included in the Linux container)     
+[cell commenting](https://github.com/jupyterlab/jupyterlab-commenting)
+[export to powerpoint](https://github.com/timkpaine/jupyterlab_powerpoint)    
 
 * ***Python packages:***    
 *---numerical manipulations and dataframes---*   
 [numpy](http://www.numpy.org/) (numerical arrays), Python 2 & 3  
 [pandas](https://pandas.pydata.org/) (dataframes and numerical analysis), Python 2 & 3    
-[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 2 & 3     
+[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 3     
 *---plotting and visualizations---*   
 [matplotlib](https://matplotlib.org/) Python 2 & 3    
-[ggplot](http://ggplot.yhathq.com/) (a Python port of the popular R ggplot2 package), Python 2 & 3       
-[seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 2 & 3    
-[plotly](https://plot.ly/python/) Python 2 & 3    
-[bokeh](https://bokeh.pydata.org/en/latest/) Python 2 & 3    
+[ggplot](http://ggplot.yhathq.com/) (a Python port of the popular R ggplot2 package), Python 3       
+[seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 3    
+[plotly](https://plot.ly/python/) Python 3    
+[bokeh](https://bokeh.pydata.org/en/latest/) Python 3    
 [altair](https://altair-viz.github.io) Python 3     
 *---statistics and machine learning---*   
 [statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 2 & 3  
@@ -87,14 +93,13 @@ Several Jupyter lab notebook extensions are included, with others available thro
 *---image analysis---*   
 [scikit-image](https://scikit-image.org) Python 3    
 *---electrophysiology---*   
-[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 2 & 3   
-[pybursts](https://github.com/rpoddighe/pybursts) (algorithm to detect activity bursts in time series data; Python implementation of the R "bursts" package), Python 2    
+[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 3     
 *---misc---*   
-[rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 2 & 3    
-[h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 2 & 3    
+[rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 3    
+[h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 3    
 [notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3  
 [jupytext](https://github.com/mwouts/jupytext) (edit jupyter notebooks as plain text python files), Python 3  
-[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 2 & 3
+[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 3
     
 
 * ***R packages:***   
@@ -121,13 +126,13 @@ The Dockerfile used to create the image is included in this repository, but you 
 # How to use the Docker image
 First, download the image by entering this command in the terminal on your host machine (do this after installing the Docker application on your computer):
 ```
-docker pull cchorn/sparc:jupyter_V1.7
+docker pull cchorn/sparc:jupyter_V1.8
 ```
 Next, enter:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.7
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.8
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.7". The command also contains three flags:    
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.8". The command also contains three flags:    
 1 - "-it", interactive terminal, which will keep the container running in the terminal until you close it.    
 2 - "-p", port mapping from the host port on the left and container port on the right of the ":" in the command. This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.   
 3 - "-v", volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; ***the host's folder name should be customized for your computer: please change "Desktop" to match a folder on your computer.***     
@@ -164,7 +169,7 @@ This new image will be loaded into the Docker image list on your local machine. 
 
 If you wish to build the docker image from the Dockerfile run the following command from the Dockerfile folder (Note: downloading the pre-built image from Docker cloud is easier):
 ```
-docker build --tag cchorn/sparc:jupyter_V1.7 .
+docker build --tag cchorn/sparc:jupyter_V1.8 .
 ```
 
 ---------------------
@@ -181,6 +186,7 @@ This work was supported by awards from the National Institutes of Health (NIH) -
 ---------------------
 
 ###### *MIT license*
+###### *2019*
 
 ###### *Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:*
 

@@ -19,13 +19,20 @@ RUN apt-get update && apt-get install -y \
     locales \
     fonts-liberation \
     git \
-    nano \
     libzmq3-dev \
     libcurl4-openssl-dev \
     libssl-dev \
     virtualenv \
     r-cran-nloptr \
-    curl 
+    curl \
+    # text editors
+    nano \
+    neovim \
+    vim \
+    # email support
+    libio-socket-ssl-perl \
+    libnet-ssleay-perl \
+    sendemail
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
@@ -45,13 +52,44 @@ ENV SHELL=/bin/bash \
 
 # Install python3 and pip package manager
 RUN apt-get update \
-  && apt-get install -y python3-pip python3-dev \
-  && cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip 
+    && apt-get install -y python3-pip python3-dev \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python \
+    && pip3 install --upgrade pip 
 
-# Install python3 packages ... (only neo 0.5.2 will import Spike2 files)
-RUN pip3 install jupyter jupyterlab pandas numpy matplotlib neo==0.5.2 h5py ggplot jupyter_contrib_nbextensions ipywidgets scipy notedown statsmodels seaborn blackfynn plotly bokeh scikit-image scikit-learn sympy jupytext altair vega_datasets simplegeneric rpy2==2.8.5
+# Install python3 packages 
+RUN pip3 install \
+    # jupyter packages   
+    jupyter \
+    jupyterlab \
+    jupyter_contrib_nbextensions \
+    ipywidgets \
+    jupytext \
+    jupyterlab_powerpoint \
+    # plotting
+    matplotlib \
+    ggplot \
+    seaborn \
+    plotly \
+    bokeh \
+    altair \
+    # machine learning
+    scikit-learn \
+    # numerical and stats processing
+    pandas \
+    numpy \
+    sympy \
+    scipy \
+    statsmodels \
+    # misc
+    neo \
+    h5py \
+    notedown \
+    blackfynn \
+    scikit-image \
+    simplegeneric \
+    pymongo \
+    rpy2==2.8.5
 
 # Install Python 2 and packages
 ####################################################
@@ -62,8 +100,11 @@ RUN apt-get update \
 
 RUN sudo -H pip2 install --upgrade pip
 
-# Install python2 packages ... (only neo 0.5.2 will import Spike2 files)
-RUN pip install pandas numpy matplotlib neo==0.5.2 h5py ggplot scipy statsmodels seaborn ipykernel pybursts blackfynn plotly jupytext rpy2==2.8.5
+# Install python2 packages (this is keep purposefully slim because Python 2 is quickly becoming obsolete)
+RUN pip install \
+    pandas \
+    numpy \
+    matplotlib 
 
 # Install Jupyter lab extensions
 ####################################################
@@ -77,7 +118,39 @@ RUN sudo apt-get install -y nodejs
 RUN npm install -g yarn
 
 # Install Jupyterlab extensions, commment out those not currently supported
-RUN jupyter labextension install @jupyterlab/toc @jupyterlab/google-drive @jupyterlab/celltags jupyterlab_bokeh @jupyterlab/github @jupyterlab/git qgrid @jupyter-widgets/jupyterlab-manager @jupyterlab/plotly-extension @mflevine/jupyterlab_html plotlywidget jupyterlab-drawio
+RUN jupyter labextension install \
+    # git
+    @jupyterlab/github \
+    @jupyterlab/git \
+    # themes
+    @telamonian/theme-darcula \
+    @rahlir/theme-gruvbox \
+    jupyterlab-theme-toggle \
+    @mohirio/jupyterlab-horizon-theme \
+    # file type viewers
+    @mflevine/jupyterlab_html \
+    jupyterlab-spreadsheet \
+    jupyterlab-drawio \
+    # file managers and openers
+    jupyterlab-recents \
+    jupyterlab-favorites \
+    jupyterlab-python-file \
+    jupyterlab_filetree \
+    @jupyterlab/google-drive \
+    # other sidebard extensions
+    @jupyterlab/toc \
+    @wallneradam/output_auto_scroll \
+    # added functionality to notebooks
+    ipysheet \
+    qgrid \
+    @aquirdturtle/collapsible_headings \
+    @jupyterlab/celltags \
+    @ibqn/jupyterlab-codecellbtn \
+    jupyterlab_vim \
+    @jupyterlab/commenting-extension \
+    jupyterlab_powerpoint \
+    # topbar extensions
+    jupyterlab-topbar-extension
 
 # Install R and packages
 ####################################################
