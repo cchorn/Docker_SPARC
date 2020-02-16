@@ -91,27 +91,27 @@ RUN pip3 install \
     pymongo \
     rpy2==2.8.5
 
-# Install Python 2 and packages
-####################################################
+# # Install Python 2 and packages
+# ####################################################
 
-# Install python 2.7 and pip package manager ... an apt-get update is needed to configure the package manager
-RUN apt-get update \
-    && apt-get install -y python2.7 python-pip 
+# # Install python 2.7 and pip package manager ... an apt-get update is needed to configure the package manager
+# RUN apt-get update \
+#     && apt-get install -y python2.7 python-pip 
 
-RUN sudo -H pip2 install --upgrade pip
+# RUN sudo -H pip2 install --upgrade pip
 
-# Install python2 packages (this is keep purposefully slim because Python 2 is quickly becoming obsolete)
-RUN pip install \
-    pandas \
-    numpy \
-    matplotlib 
+# # Install python2 packages (this is keep purposefully slim because Python 2 is quickly becoming obsolete)
+# RUN pip install \
+#     pandas \
+#     numpy \
+#     matplotlib 
 
 # Install Jupyter lab extensions
 ####################################################
 
 # Install nodejs for Jupyter lab extensions
 # https://github.com/nodesource/distributions
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs 
 
 # Install yarn
@@ -122,35 +122,14 @@ RUN jupyter labextension install \
     # git
     @jupyterlab/github \
     @jupyterlab/git \
-    # themes
-    @telamonian/theme-darcula \
-    @rahlir/theme-gruvbox \
-    jupyterlab-theme-toggle \
-    @mohirio/jupyterlab-horizon-theme \
     # file type viewers
     @mflevine/jupyterlab_html \
-    jupyterlab-spreadsheet \
     jupyterlab-drawio \
     # file managers and openers
-    jupyterlab-recents \
-    jupyterlab-favorites \
     jupyterlab-python-file \
-    jupyterlab_filetree \
     @jupyterlab/google-drive \
     # other sidebard extensions
-    @jupyterlab/toc \
-    @wallneradam/output_auto_scroll \
-    # added functionality to notebooks
-    ipysheet \
-    qgrid \
-    @aquirdturtle/collapsible_headings \
-    @jupyterlab/celltags \
-    @ibqn/jupyterlab-codecellbtn \
-    jupyterlab_vim \
-    @jupyterlab/commenting-extension \
-    jupyterlab_powerpoint \
-    # topbar extensions
-    jupyterlab-topbar-extension
+    @jupyterlab/toc
 
 # Install R and packages
 ####################################################
@@ -169,6 +148,15 @@ RUN Rscript -e "install.packages(c('devtools', 'ggplot2', 'plyr', 'reshape2', 'd
 RUN Rscript -e "install.packages('IRkernel')"
 RUN Rscript -e "IRkernel::installspec()"
 
+# Install Ruby and packages
+####################################################
+
+RUN apt-get update \
+    && apt-get install -y libtool libffi-dev ruby ruby-dev
+RUN apt-get install -y libzmq3-dev libczmq-dev
+RUN gem install ffi-rzmq iruby --pre
+RUN iruby register --force
+
 # Configure Jupyter notebook
 ####################################################
 
@@ -179,9 +167,9 @@ RUN echo "c.NotebookApp.open_browser = False" >>/root/.jupyter/jupyter_notebook_
     echo "c.InteractiveShellApp.matplotlib = 'inline'" >>/root/.ipython/profile_default/ipython_config.py && \
     echo "c.NotebookApp.contents_manager_class = 'jupytext.TextFileContentsManager'" >>/root/.jupyter/jupyter_notebook_config.py
 
-# install notebook kernel for Python 2.7
-RUN python2 -m pip install ipykernel
-RUN python2 -m ipykernel install --user
+# # install notebook kernel for Python 2.7
+# RUN python2 -m pip install ipykernel
+# RUN python2 -m ipykernel install --user
 
 # Run the Jupyter lab .. comment the first command because it is only for the notebook
 CMD jupyter lab --allow-root --ip 0.0.0.0 --no-browser
