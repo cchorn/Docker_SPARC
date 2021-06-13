@@ -35,65 +35,50 @@ docker ps -a
 docker run [image name]
 ```
 # What's in the SPARC supplied Docker image?
-The "sparc:jupyter_V.9" image runs ***[Ubuntu 18.04 Linux](https://wiki.ubuntu.com/Releases)*** distribution with the following analytic software:    
+The "sparc:jupyter_V2.0" image runs ***[Ubuntu 20.04 Linux](http://releases.ubuntu.com/)*** distribution with the following analytic software:    
 ***NOTE: To maintain compatibility, some software is kept at slightly less than the current version; also, the list of R packages is short to reduce the size of the docker image, additional packages can be installed and a new Docker image can be saved to meet the needs of each user.***
 
-* ***[Python 3.6.9](https://www.python.org/downloads/)***   
+* ***[Python 3.8.5](https://www.python.org/downloads/)***   
 Python is a high-level interpreted general-purpose programming language. Entering the command "python" in the container's terminal will start Python 3 on the command line.
 
-* ***[R 3.4.4](https://www.r-project.org/)***    
+* ***[R 3.6.3](https://www.r-project.org/)***    
 R is a software environment for statistical computing and graphics. Entering "R" on the command line starts R from the terminal.
 
-* ***[Ruby 2.5.1p57](https://www.ruby-lang.org/en/)***    
-A dynamic, open source programming language with a focus on simplicity and productivity. 
-
-* ***[Jupyter notebook 6.0.3](https://jupyter.org/)***   
+* ***[Jupyter notebook 6.4](https://jupyter.org/)***   
 Jupyter notebook is an open-source web browser application platform (this can run on your local machine or by logging into a server) to create notebooks containing text notes, programming code, and graphics, which are shareable. Typical usage for these notebooks is to run Python code but many other languages can also be used, including R and Ruby.  
 
-* ***[Jupyter lab 1.2.6](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
+* ***[Jupyter lab 3.0.16](https://jupyterlab.readthedocs.io/en/stable/index.html)***    
 Jupyter lab is a new interface for Jupyter notebooks (it does still support using notebooks in the traditional way; i.e., one notebook per browser tab). The Jupyter lab interface greatly increases functionality by providing a file browser,  many cutting-edge extensions, and the ability to a make panels in a single browser tab (e.g., a terminal, notebook, images all side-by-side). 
 
 * ***[JupyterLab extensions](https://github.com/topics/jupyterlab-extension)***    
-Several Jupyter lab notebook extensions are included, with others available through installation (https://github.com/topics/jupyterlab-extension). The installed extensions include:    
-*---git---* 
-[github](https://github.com/jupyterlab/jupyterlab-github) (file browser for github repos)      
-[git](https://github.com/jupyterlab/jupyterlab-git) (version control)       
-*---file type viewers---* 
-[html](https://github.com/mflevine/jupyterlab_html)         
-*---graphics---*   
-[drawio](https://github.com/QuantStack/jupyterlab-drawio) (a vector drawing program)    
+Several Jupyter lab notebook extensions are included, with others available through installation (https://github.com/topics/jupyterlab-extension). The installed extensions include:   
 *---file management---*      
 [Pyhon file creation](https://github.com/jtpio/jupyterlab-python-file)    
-[google drive](https://github.com/jupyterlab/jupyterlab-google-drive) (google drive collaboration)    
 *---sidebar extensions---*  
 [table of contents](https://github.com/jupyterlab/jupyterlab-toc) (table of contents for Jupyter notebooks)
 
 * ***Python packages:***    
 *---numerical manipulations and dataframes---*   
-[numpy](http://www.numpy.org/) (numerical arrays), Python 3  
-[pandas](https://pandas.pydata.org/) (dataframes and numerical analysis), Python 3    
-[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines), Python 3     
+[numpy](http://www.numpy.org/) (numerical arrays)   
+[pandas](https://pandas.pydata.org/) (dataframes and numerical analysis)     
+[scipy](https://www.scipy.org/scipylib/index.html) (efficient numerical routines)      
 *---plotting and visualizations---*   
-[matplotlib](https://matplotlib.org/) Python 3    
-[ggplot](http://ggplot.yhathq.com/) (a Python port of the popular R ggplot2 package), Python 3       
-[seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib), Python 3    
-[plotly](https://plot.ly/python/) Python 3    
-[bokeh](https://bokeh.pydata.org/en/latest/) Python 3    
-[altair](https://altair-viz.github.io) Python 3     
+[matplotlib](https://matplotlib.org/)     
+[ggplot](https://github.com/yhat/ggpy) (a Python port of the popular R ggplot2 package)        
+[seaborn](https://seaborn.pydata.org/) (statistical data visualization built on top of matplotlib)     
+[plotly](https://plot.ly/python/)     
+[bokeh](https://bokeh.pydata.org/en/latest/)     
+[altair](https://altair-viz.github.io)      
 *---statistics and machine learning---*   
-[statsmodels](http://www.statsmodels.org/stable/index.html) (statistics), Python 3  
-[scikit-learn](http://scikit-learn.org/stable/) (machine learning), Python 3     
+[statsmodels](http://www.statsmodels.org/stable/index.html) (statistics)   
+[scikit-learn](http://scikit-learn.org/stable/) (machine learning)     
 *---image analysis---*   
-[scikit-image](https://scikit-image.org) Python 3    
+[scikit-image](https://scikit-image.org)    
 *---electrophysiology---*   
-[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion), Python 3     
+[neo](http://neuralensemble.org/neo/) (electrophysiology data conversion)     
 *---misc---*   
-[rpy2](https://rpy2.readthedocs.io/en/version_2.8.x/) (interface between Python and R), Python 3    
-[h5py](http://www.h5py.org/) (binary data storage in HDF5 format), Python 3    
-[notedown](https://github.com/aaren/notedown) (tool for converting R markdown files to Jupyter notebooks), Python 3  
-[jupytext](https://github.com/mwouts/jupytext) (edit jupyter notebooks as plain text python files), Python 3  
-[blackfynn](http://docs.blackfynn.io/clients/python/index.html#python-client) (API for interaction with the Blackfynn platform for data storage/analysis), Python 3
-    
+[rpy2](https://rpy2.github.io/) (interface between Python and R)    
+[h5py](http://www.h5py.org/) (binary data storage in HDF5 format)      
 
 * ***R packages:***   
 *---numerical manipulations and dataframes---*   
@@ -102,7 +87,7 @@ Several Jupyter lab notebook extensions are included, with others available thro
 [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) (dataframe manipulation)    
 [tidyr](https://cran.r-project.org/web/packages/tidyr/) (data tidying)      
 *---plotting and visualizations---*   
-[ggplot2](http://ggplot2.org/) (plotting; based on the book "The Grammar of Graphics" by Leland Wilkinson, 2005)    
+[ggplot2](https://ggplot2.tidyverse.org/) (plotting; based on the book "The Grammar of Graphics" by Leland Wilkinson, 2005)    
 *---statistics---*   
 [pwr](https://cran.r-project.org/web/packages/pwr/) (power analysis)       
 [psych](https://cran.r-project.org/web/packages/psych/) (among many things this package has convenient data summary statistics functions)    
@@ -119,13 +104,13 @@ The Dockerfile used to create the image is included in this repository, but you 
 # How to use the Docker image
 First, download the image by entering this command in the terminal on your host machine (do this after installing the Docker application on your computer):
 ```
-docker pull cchorn/sparc:jupyter_V1.9
+docker pull cchorn/sparc:jupyter_V2.0
 ```
 Next, enter:
 ```
-docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V1.9
+docker run --rm -it -p 8888:8888 -v ~/Desktop:/home/work cchorn/sparc:jupyter_V2.0
 ```
-The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V1.9". The command also contains three flags:    
+The "docker run" command starts a container based on the image "cchorn/sparc:jupyter_V2.0". The command also contains three flags:    
 1 - "-it", interactive terminal, which will keep the container running in the terminal until you close it.    
 2 - "-p", port mapping from the host port on the left and container port on the right of the ":" in the command. This means that when the Jupyter server runs on port 8888 in the container it will map to port 8888 on the host, i.e., you can go to this port in the host's web browser URL address and see the Jupyter notebook.   
 3 - "-v", volume (folders) mapping from host to container, in this case the container will be able to see the host's "Desktop" folder from the container's "work" folder; ***the host's folder name should be customized for your computer: please change "Desktop" to match a folder on your computer.***     
@@ -156,14 +141,13 @@ This new image will be loaded into the Docker image list on your local machine. 
 * [Official Jupyter Docker Stacks](https://github.com/jupyter/docker-stacks)
 * [Unix shell commands](http://swcarpentry.github.io/shell-novice/), from Software Carpentry
 * [list of Python tutorials](https://wiki.python.org/moin/BeginnersGuide/Programmers)
-* [a guide to Ruby](http://rubykoans.com/)
 * [Quick R](https://www.statmethods.net/), a beginner friendly place to learn R programming
-* [PyPI - the Python Package Index](https://pypi.python.org/pypi), search for a package in the archive of > *129,000* packages and growing!
+* [PyPI - the Python Package Index](https://pypi.python.org/pypi), search for a package in the archive of > *310,000* packages and growing!
 * [R package list by name](https://cran.r-project.org/web/packages/available_packages_by_name.html), there are > *12,000* packages! The R project site does not have a search function but you can use [Rseek](https://rseek.org/) database.
 
 If you wish to build the docker image from the Dockerfile run the following command from the Dockerfile folder (Note: downloading the pre-built image from Docker cloud is easier):
 ```
-docker build --tag cchorn/sparc:jupyter_V1.9 .
+docker build --tag cchorn/sparc:jupyter_V2.0 .
 ```
 
 ---------------------
@@ -180,7 +164,7 @@ This work was supported by awards from the National Institutes of Health (NIH) -
 ---------------------
 
 ###### *MIT license*
-###### *2020*
+###### *2021*
 
 ###### *Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:*
 
