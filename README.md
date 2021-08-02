@@ -3,6 +3,8 @@ Docker is a software system that uses containers. Containers are isolated user-d
 
 A Docker container is a running instance of the Docker image.
 
+This work was supported by awards from the National Institutes of Health (NIH) - Stimulating Peripheral Activity to Relieve Conditions ([SPARC](https://commonfund.nih.gov/Sparc/)) Program.
+
 # Advantages of Docker:
 There are two significant advantages when using Docker images for science projects:
 #### 1. Easy installation.
